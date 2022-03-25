@@ -10,7 +10,7 @@ jobs:
           name: Install Dependencies
           command: |
             pip install --user -r requirements.txt
-      - run: python manage.py test
+      - run: python app/manage.py test
 
 workflows:
   tests-workflow:
