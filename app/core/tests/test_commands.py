@@ -1,6 +1,5 @@
 from unittest.mock import patch
 
-import django.db.utils
 from django.core.management import call_command
 from django.db.utils import OperationalError
 from django.test import TestCase
