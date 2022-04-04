@@ -78,7 +78,6 @@ class PrivateUserApiTests(APITestCase):
             name='testuser'
         )
 
-        #self.client = APIClient()
         self.client.force_authenticate(user=self.user)
 
     def test_authorized_user_retrieval(self):

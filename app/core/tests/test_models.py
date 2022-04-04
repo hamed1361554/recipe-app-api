@@ -4,7 +4,9 @@ from django.contrib.auth import get_user_model
 import core.models as models
 
 
-def sample_user(email='email@sample.com', password='testsamplepassword', **kwargs):
+def sample_user(email='email@sample.com',
+                password='testsamplepassword',
+                **kwargs):
     return get_user_model().objects.create_user(email, password, **kwargs)
 
 
@@ -63,3 +65,15 @@ class ModelTests(TestCase):
         self.assertEqual(str(tag), tag_name)
         self.assertEqual(user.email, tag.user.email)
 
+    def test_ingredient_str(self):
+        """Tests than ingredient model representation works"""
+
+        ingredient_name = "cucumber"
+        user = sample_user()
+        ingredient = models.Ingredient.objects.create(
+            user=user,
+            name=ingredient_name
+        )
+
+        self.assertEqual(str(ingredient), ingredient_name)
+        self.assertEqual(user.email, ingredient.user.email)
